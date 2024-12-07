@@ -15,4 +15,8 @@ public partial class Shareholder
 
     [Column(TypeName = "decimal(18, 2)")]
     public decimal? SharesOwned { get; set; }
+
+    [ForeignKey("ShareholderId")]
+    public Employee? Employee {get; set;}
+
 }

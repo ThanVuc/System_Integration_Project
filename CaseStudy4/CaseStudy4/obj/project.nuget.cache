@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yTvXc15Iujc=",
+  "dgSpecHash": "az5wP34M4Xg=",
   "success": true,
-  "projectFilePath": "D:\\A_STORAGE\\SecondBrain\\KNOWLEDGE\\Computer Science\\SystemIntegration\\Case Study\\Case4\\CaseStudy4\\CaseStudy4\\CaseStudy4.csproj",
+  "projectFilePath": "D:\\A_STORAGE\\SecondBrain\\KNOWLEDGE\\Computer Science\\SystemIntegration\\Case Study\\Case4\\System_Integration_Project\\CaseStudy4\\CaseStudy4\\CaseStudy4.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

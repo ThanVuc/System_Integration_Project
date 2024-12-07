@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="sidebar">
+    <h2 class="logo">ACEM-Company</h2>
+    <ul class="menu">
+        <li class="menu-item" routerLink="/dashboard" routerLinkActive="active" >Statistics & Reports</li>
+  
+        <li class="menu-item">Stakeholder
+            <i class="ti-angle-down"></i>
+            <ul class="dropdown">
+                <li class="dropdown-item">Employee</li>
+                <li class="dropdown-item">Vacation Management</li>
+            </ul>
+        </li>
+  
+        <li class="menu-item">Notifications
+            <i class="ti-angle-down"></i>
+            <ul class="dropdown">
+                <li class="dropdown-item">Days Off Exceed</li>
+                <li class="dropdown-item">Birthday</li>
+                <li class="dropdown-item">Changed benefit</li>
+                <li class="dropdown-item">Hiring Anniversary</li>
+            </ul>
+        </li>
+  
+        <li class="menu-item">Setting
+            
+        </li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <header class="header">
+        <div class="search-bar">
+            <form>
+                <input type="text" placeholder="Customer">
+            </form>
+        </div>
+        <div class="profile">
+            <span class="notification-icon">&#128276;</span>
+            <div class="user">SinhNguyen</div>
+        </div>
+    </header>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\A_STORAGE\\SecondBrain\\KNOWLEDGE\\Computer Science\\SystemIntegration\\Case Study\\Case4\\CaseStudy4\\CaseStudy4\\CaseStudy4.csproj": {}
+    "D:\\A_STORAGE\\SecondBrain\\KNOWLEDGE\\Computer Science\\SystemIntegration\\Case Study\\Case4\\System_Integration_Project\\CaseStudy4\\CaseStudy4\\CaseStudy4.csproj": {}
   },
   "projects": {
-    "D:\\A_STORAGE\\SecondBrain\\KNOWLEDGE\\Computer Science\\SystemIntegration\\Case Study\\Case4\\CaseStudy4\\CaseStudy4\\CaseStudy4.csproj": {
+    "D:\\A_STORAGE\\SecondBrain\\KNOWLEDGE\\Computer Science\\SystemIntegration\\Case Study\\Case4\\System_Integration_Project\\CaseStudy4\\CaseStudy4\\CaseStudy4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\A_STORAGE\\SecondBrain\\KNOWLEDGE\\Computer Science\\SystemIntegration\\Case Study\\Case4\\CaseStudy4\\CaseStudy4\\CaseStudy4.csproj",
+        "projectUniqueName": "D:\\A_STORAGE\\SecondBrain\\KNOWLEDGE\\Computer Science\\SystemIntegration\\Case Study\\Case4\\System_Integration_Project\\CaseStudy4\\CaseStudy4\\CaseStudy4.csproj",
         "projectName": "CaseStudy4",
-        "projectPath": "D:\\A_STORAGE\\SecondBrain\\KNOWLEDGE\\Computer Science\\SystemIntegration\\Case Study\\Case4\\CaseStudy4\\CaseStudy4\\CaseStudy4.csproj",
+        "projectPath": "D:\\A_STORAGE\\SecondBrain\\KNOWLEDGE\\Computer Science\\SystemIntegration\\Case Study\\Case4\\System_Integration_Project\\CaseStudy4\\CaseStudy4\\CaseStudy4.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\A_STORAGE\\SecondBrain\\KNOWLEDGE\\Computer Science\\SystemIntegration\\Case Study\\Case4\\CaseStudy4\\CaseStudy4\\obj\\",
+        "outputPath": "D:\\A_STORAGE\\SecondBrain\\KNOWLEDGE\\Computer Science\\SystemIntegration\\Case Study\\Case4\\System_Integration_Project\\CaseStudy4\\CaseStudy4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",

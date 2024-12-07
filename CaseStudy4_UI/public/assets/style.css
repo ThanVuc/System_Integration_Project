@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .logo {
+    font-size: 20px;
+    margin-bottom: 2rem;
+}
+
+.sidebar .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar .menu-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.sidebar .menu-item:hover, .sidebar .menu-item.active {
+    background-color: #51e192;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header .search-bar{
+    width: 100%;
+}
+
+.header .search-bar input {
+    padding: 8px;
+    border: 1px solid #18c221;
+    border-radius: 4px;
+    width: 40%;
+}
+
+.header .search-bar input::placeholder{
+    color: black;
+}
+
+.header .profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification-icon {
+    font-size: 18px;
+    color: red;
+    cursor: pointer;
+}
+.menu-item {
+    position: relative;
+}
+
+.dropdown {
+    display: none; /* Ẩn mặc định */
+    position: absolute;
+    top: 100%; /* Vị trí bên dưới menu item */
+    left: 0;
+    background-color: #f3f3f3;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    min-width: 200px;
+}
+
+.dropdown-item {
+    padding: 10px 15px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #2e8b57;
+    color: white;
+}
+
+/* Hiển thị khi hover */
+.menu-item:hover .dropdown {
+    display: block;
+}
+
+.user {
+    font-weight: bold;
+}
+
+.content {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.content-box {
+    background-color: white;
+    height: 150px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content-box.wide {
+    grid-column: span 2;
+    height: 300px;
+}

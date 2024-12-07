@@ -18,13 +18,25 @@ namespace CaseStudy4.Controllers
         [HttpGet("get-shareholder-earning")]
         public async Task<IActionResult> GetTotalEarningOfShareHolder()
         {
-            var shareHolders = await _context.Shareholders.ToListAsync();
+            var shareHolders = await _context.Shareholders
+            .Include(sh => sh.Employee)
+            .ToListAsync();
+
+            var shareHoldersRes = new List<object>();
+
             decimal? total = 0;
-            shareHolders.ForEach(s => total += s.SharesOwned);
+            shareHolders.ForEach(s => {
+                shareHoldersRes.Add(new {
+                    Name = s.Employee.FirstName + " " + s.Employee.LastName,
+                    ShareHolderId = s.ShareholderId,
+                    SharesOwned = s.SharesOwned
+                });
+                total += s.SharesOwned;
+            });
             var apiRes = new
             {
                 Total = total,
-                ShareHolder = shareHolders
+                ShareHolder = shareHoldersRes
             };
             return Ok(apiRes);
         }
