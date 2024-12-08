@@ -1,5 +1,43 @@
 <div class="container">
-    <div class="chart-container">
-        <canvas #canvas id="share-holder-earning" > {{ shareHolderEarningChart }} </canvas>
+    <div class="header" >
+        <span class="mdi-light--bank"></span>
+        <div class="synthetic">
+            <p style="margin-bottom: 0.2rem;">Synthetic Earning</p>
+            <p style="font-size: small; margin-bottom: 0.4rem;" >Office Alaska</p>
+
+            <div class="info">
+                <div class="info-item" >
+                    <p>Total Earning</p>
+                    <b>{{ syntheticEarningModel.totalEarning }}</b>
+                </div>
+                
+                <div class="info-item">
+                    <p>Avarage Benefit</p>
+                    <b>{{ syntheticEarningModel.benefit }}</b>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="chart">
+        <div class="chart-container">
+            <canvas id="share-holder-earning" > {{ shareHolderEarningChart }} </canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="department-earning" > {{ departmentEarningChar }} </canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="ethnicity-earning" > {{ ethnicityEarningChart }} </canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="gender-earning" > {{ genderEarningChart }} </canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="working-time-earning" > {{ workingTimeEarningChart }} </canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="projects" > {{ projectsChart }} </canvas>
+        </div>
+    </div>
+
 </div>

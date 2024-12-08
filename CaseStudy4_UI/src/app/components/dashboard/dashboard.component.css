@@ -1,11 +1,68 @@
+@import url(../icon.css);
 .container{
     display: flex;
     flex-wrap: wrap;
+    margin-left: 2%;
+}
+
+.header{
+    width: 100%;
+    margin-top: 1%;
+    background-color: antiquewhite;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.header .mdi-light--bank{
+    height: 5rem;
+    width: 5rem;
+    margin-left: 1rem;
+}
+
+.header .synthetic{
+    display: flex;
+    flex-direction: column;
+}
+
+.header .synthetic p{
+    margin-block: 0;
+}
+
+.header .synthetic .info{
+    display: flex;
+}
+
+.header .synthetic .info .info-item{
+    margin-right: 1rem;
+}
+
+.container .chart{
+    width: 100%;
+    height: 40rem;
+    display: flex;
+    flex-wrap: wrap;
+
 }
 
 .chart-container{
-    width: 48%;
-    margin: 2% 0 0 2%;
+    width: 46%;
+    height: 40%;
+    margin: 2% 2% 0 0;
     background-color: white;
     border-radius: 0.5rem;
+    padding: 1%;
+    display: flex;
+    justify-content: center;
 }
+
+#gender-earning{
+    width:  13.9rem  !important;
+    height: auto !important;
+}
+
+#working-time-earning{
+    width: 13.9rem !important;
+    height: 80% !important;
+}
+
