@@ -306,8 +306,6 @@ D:\A_STORAGE\SecondBrain\KNOWLEDGE\Computer Science\SystemIntegration\Case Study
 D:\A_STORAGE\SecondBrain\KNOWLEDGE\Computer Science\SystemIntegration\Case Study\Case4\CaseStudy4\CaseStudy4\obj\Debug\net8.0\CaseStudy4.pdb
 D:\A_STORAGE\SecondBrain\KNOWLEDGE\Computer Science\SystemIntegration\Case Study\Case4\CaseStudy4\CaseStudy4\obj\Debug\net8.0\CaseStudy4.genruntimeconfig.cache
 D:\A_STORAGE\SecondBrain\KNOWLEDGE\Computer Science\SystemIntegration\Case Study\Case4\CaseStudy4\CaseStudy4\obj\Debug\net8.0\ref\CaseStudy4.dll
-D:\A_STORAGE\SecondBrain\KNOWLEDGE\Computer Science\SystemIntegration\Case Study\Case4\System_Integration_Project\CaseStudy4\CaseStudy4\bin\Debug\net8.0\appsettings.Development.json
-D:\A_STORAGE\SecondBrain\KNOWLEDGE\Computer Science\SystemIntegration\Case Study\Case4\System_Integration_Project\CaseStudy4\CaseStudy4\bin\Debug\net8.0\appsettings.json
 D:\A_STORAGE\SecondBrain\KNOWLEDGE\Computer Science\SystemIntegration\Case Study\Case4\System_Integration_Project\CaseStudy4\CaseStudy4\bin\Debug\net8.0\CaseStudy4.exe
 D:\A_STORAGE\SecondBrain\KNOWLEDGE\Computer Science\SystemIntegration\Case Study\Case4\System_Integration_Project\CaseStudy4\CaseStudy4\bin\Debug\net8.0\CaseStudy4.deps.json
 D:\A_STORAGE\SecondBrain\KNOWLEDGE\Computer Science\SystemIntegration\Case Study\Case4\System_Integration_Project\CaseStudy4\CaseStudy4\bin\Debug\net8.0\CaseStudy4.runtimeconfig.json
