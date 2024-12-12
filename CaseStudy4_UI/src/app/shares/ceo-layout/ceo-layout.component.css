@@ -43,8 +43,12 @@
     transition: background-color 0.3s;
 }
 
-.sidebar .menu-item:hover, .sidebar .menu-item.active {
+/* .sidebar .menu-item:hover, .sidebar .menu-item.active {
     background-color: #51e192;
+} */
+
+.active{
+    background-color: #5ce698;
 }
 
 .main-content {

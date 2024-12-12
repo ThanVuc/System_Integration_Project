@@ -24,7 +24,17 @@ export class DashboardComponent implements OnInit {
   http = inject(HttpClient);
 
   ngOnInit(): void {
-    this.getSyntheticEarning();
+
+    if (this.document.readyState == "complete"){
+      this.getSyntheticEarning();
+      this.getShareHolder();
+      this.getDepartmentEarning();
+      this.getEthnicityEarning();
+      this.getGenderEarning();
+      this.getWorkingTimeEarning();
+      this.getProject();
+    }
+
     this.document.addEventListener("DOMContentLoaded", () => {
       this.getShareHolder();
       this.getDepartmentEarning();

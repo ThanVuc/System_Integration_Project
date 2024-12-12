@@ -16,6 +16,9 @@ public partial class Salary
     [Column("EmployeeID")]
     public int? EmployeeId { get; set; }
 
+    public DateTime? SalaryCreatedDate {get; set;} = DateTime.Now;
+
+
     [Column(TypeName = "decimal(18, 2)")]
     public decimal? BasicSalary { get; set; }
 
