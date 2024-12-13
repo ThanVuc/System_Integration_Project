@@ -93,7 +93,6 @@ public partial class Employee
     [ForeignKey("PositionId")]
     [InverseProperty("Employees")]
     public virtual Position? Position { get; set; }
-
-    [InverseProperty("Employee")]
-    public virtual ICollection<Salary> Salaries { get; set; } = new List<Salary>();
+    
+    public virtual Salary? Salary { get; set; }
 }

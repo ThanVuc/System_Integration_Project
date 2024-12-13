@@ -1,0 +1,39 @@
+<div class="container">
+    <h1 class="text-center mt-2">Customer</h1>
+    <div class="filter-section">
+        <label for="department">Department</label>
+        <select (change)="changeSelectDeparatment()" [(ngModel)]="selectDepartmentOption"  class="form-select w-25" id="department">
+            <option value="" selected >All Department</option>
+            @for (item of departments; track $index) {
+                <option value="{{item}}">{{ item }}</option>
+            }
+        </select>
+    </div>
+    <table class="employee-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Gender</th>
+                <th>City</th>
+                <th>Work Time(P/F)</th>
+                <th>Total Earnings</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of employees; track $index) {
+                <tr routerLink="/dashboard/stake-holder/employees/{{item.id}}" >
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.department }}</td>
+                    <td>{{ item.gender }}</td>
+                    <td>{{ item.ethinicity }}</td>
+                    <td>{{ item.fullTime }}</td>
+                    <td>{{ item.totalEarning }}</td>
+                </tr>
+            }
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</div>

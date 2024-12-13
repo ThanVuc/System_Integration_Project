@@ -1,4 +1,5 @@
 ﻿using CaseStudy4.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,6 +7,7 @@ namespace CaseStudy4.Controllers
 {
     [ApiController]
     [Route("api/dashboard")]
+    // [Authorize]
     public class DashBoardController : ControllerBase
     {
         private readonly HrandPayRollintegrationContext _context;

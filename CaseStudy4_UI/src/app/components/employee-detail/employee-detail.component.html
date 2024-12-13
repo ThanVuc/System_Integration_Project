@@ -1,0 +1,123 @@
+<div class="body">
+    <div class="container">
+        <div class="header">
+            <h1 class="text-center">CUSTOMER PROFILE</h1>
+            <div class="controls">
+                <button class="export">Export</button>
+            </div>
+        </div>
+        <div class="personal-info">
+            <div class="profile-pic">
+                <img src="profile-pic.png" alt="Profile Picture">
+            </div>
+            <div class="info">
+                <h5>{{ employee.name }}</h5>
+                <p>{{employee.department}}</p>
+                <p>{{employee.position}}</p>
+                <p>Joined: {{employee.join}}</p>
+                <p>Form: {{employee.fullTime}}</p>
+                <p>Gender: {{employee.gender}}</p>
+            </div>
+            <div class="contact-info">
+                <p>Birth: <strong>{{employee.birth}}</strong></p>
+                <p><a>Email: {{employee.mail}}</a></p>
+                <p>Phone Number: {{employee.phone}}</p>
+                <p>Address: {{employee.address}}</p>
+            </div>
+        </div>
+        <div class="day-offs">
+            <h2>DAY OFFS</h2>
+            <div class="calendar">
+                <h3>{{month}}</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sunday</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                            <th>Saturday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (d of weeksInMonth; track $index) {
+                            <tr>
+                                @for (day of days; track $index) {
+                                    <td class="calendar-item">{{ day[d] }}</td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="salary-body">
+    <div class="salary-slip">
+        <h1>MONTHLY SALARY SLIP</h1>
+
+        <!-- Personal Information -->
+        <table class="info">
+            <tbody>
+                <tr>
+                    <td><strong>Name:</strong> {{employee.name}}</td>
+                    <td><strong>ID:</strong> {{salarySlip.slipId}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Position:</strong> {{employee.position}}</td>
+                    <td><strong>Date:</strong> {{salarySlip.date}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Details -->
+        <table class="details">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th colspan="2">Details</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td colspan="2">Workdays this month</td>
+                    <td>{{salarySlip.workDaysThisMonth}}</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td colspan="2">Basic</td>
+                    <td>{{salarySlip.basicSalary}} $</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td colspan="2">Allowances</td>
+                    <td>{{salarySlip.allowances}} $</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td colspan="2" >Deductions</td>
+                    <td>{{salarySlip.deduction}} $</td>
+                </tr>
+                
+            </tbody>
+        </table>
+
+        <!-- Net Salary -->
+        <table class="totals">
+            <tbody>
+                <tr>
+                    <td colspan="3" class="right-align highlight">Net Salary</td>
+                    <td class="text-center highlight">{{salarySlip.netSalary}} $</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

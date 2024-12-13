@@ -1,7 +1,11 @@
-﻿using CaseStudy4.DTO;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using CaseStudy4.DTO;
 using CaseStudy4.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace CaseStudy4.Controllers
 {
@@ -15,22 +19,37 @@ namespace CaseStudy4.Controllers
             _context = context;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Login(LoginRequestModel loginRequest)
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody]LoginRequestModel loginRequestModel)
         {
-            if (loginRequest == null)
+            if (loginRequestModel is null)
             {
-                return BadRequest("Login information is not exist");
+                return BadRequest("Invalid client request");
             }
 
-            var user = await _context.Employees.FirstOrDefaultAsync(e => e.Username == loginRequest.Username && e.PasswordHash == loginRequest.Password);
-            
-            if (user == null)
-            {
-                return BadRequest("Username or Password is incorrect");
-            }
+            var user = await _context.Employees
+            .FirstOrDefaultAsync(e => e.Username == loginRequestModel.Username && e.PasswordHash == loginRequestModel.Password);
 
-            return Ok("Login Success");
+            if (user != null)
+            {
+                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSdaklsdjkljaafisdfopi234lkjlkjdfkljdflkjecretKey@345"));
+                var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+                var tokeOptions = new JwtSecurityToken(
+                    issuer: "https://localhost:5003",
+                    audience: "https://localhost:5003",
+                    claims: new List<Claim>(),
+                    expires: DateTime.Now.AddMinutes(5),
+                    signingCredentials: signinCredentials
+                );
+                var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
+                return Ok(new AuthenticatedResponse { Token = tokenString });
+            }
+            return Unauthorized();
         }
+    }
+
+    internal class AuthenticatedResponse
+    {
+        public string? Token { get; set; }
     }
 }

@@ -10,11 +10,11 @@ namespace CaseStudy4.Models;
 public partial class Salary
 {
     [Key]
-    [Column("SalaryID")]
+    [Column("SalaryId")]
     public int SalaryId { get; set; }
 
-    [Column("EmployeeID")]
-    public int? EmployeeId { get; set; }
+    public DateTime? SalaryCreatedDate {get; set;} = DateTime.Now;
+
 
     [Column(TypeName = "decimal(18, 2)")]
     public decimal? BasicSalary { get; set; }
@@ -28,7 +28,6 @@ public partial class Salary
     [Column(TypeName = "decimal(18, 2)")]
     public decimal? NetSalary { get; set; }
 
-    [ForeignKey("EmployeeId")]
-    [InverseProperty("Salaries")]
+    [ForeignKey("SalaryId")]
     public virtual Employee? Employee { get; set; }
 }

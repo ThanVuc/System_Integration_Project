@@ -52,6 +52,7 @@ public partial class HrandPayRollintegrationContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
         modelBuilder.Entity<Alert>(entity =>
         {
             entity.HasKey(e => e.AlertId).HasName("PK__Alerts__EBB16AED1FC1AFC6");
@@ -164,11 +165,11 @@ public partial class HrandPayRollintegrationContext : DbContext
 
         modelBuilder.Entity<Salary>(entity =>
         {
-            entity.HasKey(e => e.SalaryId).HasName("PK__Salary__4BE204B7DD731782");
+            entity.HasKey(e => e.SalaryId).HasName("PK__Salary__4BE204B7DD731782A");
 
             entity.Property(e => e.SalaryId).ValueGeneratedNever();
 
-            entity.HasOne(d => d.Employee).WithMany(p => p.Salaries).HasConstraintName("FK__Salary__Employee__60A75C0F");
+            entity.HasOne(d => d.Employee).WithOne(p => p.Salary).HasConstraintName("FK__Salary__Employee__60A75C0F");
         });
 
         modelBuilder.Entity<Shareholder>(entity =>
@@ -177,6 +178,194 @@ public partial class HrandPayRollintegrationContext : DbContext
 
             entity.Property(e => e.ShareholderId).ValueGeneratedNever();
         });
+
+
+       // Seed Data for Employees
+        modelBuilder.Entity<Employee>().HasData(
+        new Employee
+        {
+            EmployeeId = 1,
+            Username = "johndoe@example.com", // Using email as username
+            PasswordHash = "hash1",
+            FirstName = "John",
+            LastName = "Doe",
+            Gender = "Male",
+            DateOfBirth = DateOnly.FromDateTime(new DateTime(1990, 1, 15)),
+            Ethnicity = "China",
+            HireDate = DateOnly.FromDateTime(DateTime.Now.AddYears(-5)),
+            DepartmentId = 1,
+            BranchId = 1,
+            TotalEarning = 100000,
+            Address = "123 Main St",
+            Fulltime = "P",
+            AverageBenefits = 5000,
+            Phone = "123-456-7890",
+            Email = "johndoe@example.com",
+            PositionId = 1
+        },
+        new Employee
+        {
+            EmployeeId = 2,
+            Username = "alicesmith@example.com", // Using email as username
+            PasswordHash = "hash2",
+            FirstName = "Alice",
+            LastName = "Smith",
+            Gender = "Female",
+            DateOfBirth = DateOnly.FromDateTime(new DateTime(1992, 5, 22)),
+            Ethnicity = "America",
+            HireDate = DateOnly.FromDateTime(DateTime.Now.AddYears(-3)),
+            DepartmentId = 2,
+            BranchId = 2,
+            TotalEarning = 80000,
+            Address = "456 Elm St",
+            Fulltime = "F",
+            AverageBenefits = 3000,
+            Phone = "987-654-3210",
+            Email = "alicesmith@example.com",
+            PositionId = 2
+        },
+        new Employee
+        {
+            EmployeeId = 3,
+            Username = "brucewayne@example.com", // Using email as username
+            PasswordHash = "hash3",
+            FirstName = "Bruce",
+            LastName = "Wayne",
+            Gender = "Male",
+            DateOfBirth = DateOnly.FromDateTime(new DateTime(1985, 11, 17)),
+            Ethnicity = "America",
+            HireDate = DateOnly.FromDateTime(DateTime.Now.AddYears(-10)),
+            DepartmentId = 3,
+            BranchId = 3,
+            TotalEarning = 75000,
+            Address = "789 Oak St",
+            Fulltime = "F",
+            AverageBenefits = 4000,
+            Phone = "555-555-5555",
+            Email = "brucewayne@example.com",
+            PositionId = 3
+        },
+        new Employee
+        {
+            EmployeeId = 4,
+            Username = "sinh@gmail.com", // Using email as username
+            PasswordHash = "123",
+            FirstName = "Sinh",
+            LastName = "Nguyen",
+            Gender = "Male",
+            DateOfBirth = DateOnly.FromDateTime(new DateTime(1985, 11, 17)),
+            Ethnicity = "Viet Nam",
+            HireDate = DateOnly.FromDateTime(DateTime.Now.AddYears(-10)),
+            DepartmentId = 3,
+            BranchId = 3,
+            TotalEarning = 75000,
+            Address = "789 Oak St",
+            Fulltime = "F",
+            AverageBenefits = 4000,
+            Phone = "555-555-5555",
+            Email = "brucewayne@example.com",
+            PositionId = 3
+        }
+    );
+
+        // Seed Data for Departments
+        modelBuilder.Entity<Department>().HasData(
+            new Department { DepartmentId = 1, DepartmentName = "IT" },
+            new Department { DepartmentId = 2, DepartmentName = "HR" },
+            new Department { DepartmentId = 3, DepartmentName = "Finance" }
+        );
+
+        // Seed Data for Branches
+        modelBuilder.Entity<Branch>().HasData(
+            new Branch { BranchId = 1, BranchName = "Headquarters", BranchManager = "John Manager" },
+            new Branch { BranchId = 2, BranchName = "East Office", BranchManager = "Alice Manager" },
+            new Branch { BranchId = 3, BranchName = "West Office", BranchManager = "Bruce Manager" }
+        );
+
+        // Seed Data for Positions
+        modelBuilder.Entity<Position>().HasData(
+            new Position { PositionId = 1, PositionName = "Manager", BasicSalary = 100000 },
+            new Position { PositionId = 2, PositionName = "Developer", BasicSalary = 80000 },
+            new Position { PositionId = 3, PositionName = "Analyst", BasicSalary = 75000 }
+        );
+
+        // Seed Data for Salaries
+        modelBuilder.Entity<Salary>().HasData(
+            new Salary { SalaryId = 1, BasicSalary = 100000, Allowances = 5000, Deductions = 2000, NetSalary = 103000 },
+            new Salary { SalaryId = 2, BasicSalary = 80000, Allowances = 3000, Deductions = 1000, NetSalary = 82000 },
+            new Salary { SalaryId = 3, BasicSalary = 75000, Allowances = 4000, Deductions = 1500, NetSalary = 78500 }
+        );
+
+        // Seed Data for Projects
+        modelBuilder.Entity<Project>().HasData(
+            new Project { ProjectId = 1, ProjectName = "Project A", StartDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(-6)), EndDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(6)) },
+            new Project { ProjectId = 2, ProjectName = "Project B", StartDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(-12)), EndDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(-1)) },
+            new Project { ProjectId = 3, ProjectName = "Project C", StartDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(-3)), EndDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(9)) }
+        );
+
+        // Seed Data for Attendance
+        modelBuilder.Entity<Attendance>().HasData(
+            new Attendance { AttendanceId = 1, EmployeeId = 1, Date = DateOnly.FromDateTime(DateTime.Now.AddDays(-1)), Status = "Present" },
+            new Attendance { AttendanceId = 2, EmployeeId = 2, Date = DateOnly.FromDateTime(DateTime.Now.AddDays(-1)), Status = "Absent" },
+            new Attendance { AttendanceId = 3, EmployeeId = 3, Date = DateOnly.FromDateTime(DateTime.Now.AddDays(-1)), Status = "Present" }
+        );
+
+        // Seed Data for DaysOff
+        modelBuilder.Entity<DayOff>().HasData(
+            new DayOff { DayOffId = 1, EmployeeId = 1, StartDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-7)), EndDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-5)), Hours = 16, Status = "Approved" },
+            new DayOff { DayOffId = 2, EmployeeId = 2, StartDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-10)), EndDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-9)), Hours = 8, Status = "Pending" },
+            new DayOff { DayOffId = 3, EmployeeId = 3, StartDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-20)), EndDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-18)), Hours = 24, Status = "Rejected" }
+        );
+
+        // Seed Data for LeaveDays
+        modelBuilder.Entity<LeaveDay>().HasData(
+            new LeaveDay { LeaveId = 1 ,EmployeeId = 1, LeaveDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-30)), LeaveType = "Sick Leave", LeaveDuration = 8 },
+            new LeaveDay { LeaveId = 2 ,EmployeeId = 2, LeaveDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-60)), LeaveType = "Annual Leave", LeaveDuration = 16 },
+            new LeaveDay { LeaveId = 3 ,EmployeeId = 3, LeaveDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-15)), LeaveType = "Maternity Leave", LeaveDuration = 40 }
+        );
+
+        // Seed Data for Benefits
+        modelBuilder.Entity<Benefit>().HasData(
+            new Benefit { BenefitId = 1, BenefitType = "Health Insurance", BenefitAmount = 5000, EffectiveDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(-12)) },
+            new Benefit { BenefitId = 2, BenefitType = "Retirement Fund", BenefitAmount = 8000, EffectiveDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(-6)) },
+            new Benefit { BenefitId = 3, BenefitType = "Travel Allowance", BenefitAmount = 3000, EffectiveDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(-18)) }
+        );
+
+        // Seed Data for Payrolls
+        modelBuilder.Entity<Payroll>().HasData(
+            new Payroll { PayrollId = 1, EmployeeId = 1, PayDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(-1)) },
+            new Payroll { PayrollId = 2, EmployeeId = 2, PayDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(-2)) },
+            new Payroll { PayrollId = 3, EmployeeId = 3, PayDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(-3)) }
+        );
+
+        // Seed Data for PerformanceReviews
+        modelBuilder.Entity<PerformanceReview>().HasData(
+            new PerformanceReview { ReviewId = 1, ReviewDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(-12)), Reviewer = "Manager A", Score = 90 },
+            new PerformanceReview { ReviewId = 2, ReviewDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(-6)), Reviewer = "Manager B", Score = 85 },
+            new PerformanceReview { ReviewId = 3, ReviewDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(-9)), Reviewer = "Manager C", Score = 88 }
+        );
+
+        // Seed Data for Alerts
+        modelBuilder.Entity<Alert>().HasData(
+            new Alert { AlertId = 1, AlertType = "System Maintenance", AlertDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(-1)), AlertStatus = "Resolved" },
+            new Alert { AlertId = 2, AlertType = "Policy Update", AlertDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(-2)), AlertStatus = "Pending" },
+            new Alert { AlertId = 3, AlertType = "Security Breach", AlertDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(-3)), AlertStatus = "Resolved" }
+        );
+
+        // Seed Data for Shareholders
+        modelBuilder.Entity<Shareholder>().HasData(
+            new Shareholder { ShareholderId = 1, SharesOwned = 50 },
+            new Shareholder { ShareholderId = 2, SharesOwned = 30 },
+            new Shareholder { ShareholderId = 3, SharesOwned = 20 }
+        );
+
+        // Seed Data for Locations
+        modelBuilder.Entity<Location>().HasData(
+            new Location { LocationId = 1, StreetAddress = "123 Main St", Postcode = "12345", City = "Metropolis" },
+            new Location { LocationId = 2, StreetAddress = "456 Elm St", Postcode = "67890", City = "Gotham" },
+            new Location { LocationId = 3, StreetAddress = "789 Oak St", Postcode = "54321", City = "Star City" }
+        );
+
 
         OnModelCreatingPartial(modelBuilder);
     }
